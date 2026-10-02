@@ -1,0 +1,35 @@
+# Copy to config.toml and make it yours.
+
+[profile]
+name = "Your Name"
+years = 5
+seniority = 3            # 1 junior · 2 specialist · 3 manager · 4 senior/lead · 5 head
+skills = ["influencer marketing", "creator partnerships", "negotiation", "account management", "campaign reporting", "creator crms"]
+domains = ["influencer", "creator", "partnerships", "brand"]
+target_titles = ["partnerships", "influencer", "creator", "account manager", "customer success"]
+base_city = "Berlin"
+home_country = "DE"
+
+[profile.languages]
+English = "Fluent"
+German = "B1"
+
+[profile.evidence]  # one-line proof per skill, shown next to each matched requirement
+"negotiation" = "Negotiated rates and deliverables across 850+ creator deals"
+
+[filters]
+exclude_titles = ["engineer", "developer", "data scientist", "intern", "werkstudent"]
+
+# Public job-board APIs. The slug is the company's handle in its careers URL.
+[[boards]]
+ats = "greenhouse"
+slug = "example-company"
+company = "Example Co"
+
+[[boards]]
+ats = "ashby"
+slug = "another-company"
+
+[[boards]]
+ats = "lever"
+slug = "third-company"

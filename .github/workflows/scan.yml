@@ -1,0 +1,25 @@
+name: scan
+# Scans the boards in config.toml twice a day and commits the shortlist.
+on:
+  schedule:
+    - cron: "50 5,16 * * *"   # 07:50 and 18:50 Berlin (summer time)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    if: hashFiles('config.toml') != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - run: jobscout run --config config.toml --out shortlist.md
+      - run: |
+          git config user.name "jobscout-bot"
+          git config user.email "jobscout-bot@users.noreply.github.com"
+          git add shortlist.md
+          git diff --cached --quiet || git commit -m "Shortlist $(date -u +%F\ %H:%M)"
+          git push
