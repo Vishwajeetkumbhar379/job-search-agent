@@ -25,7 +25,11 @@ def _offline(folder: str):
 
 
 def cmd_run(a) -> int:
-    cfg = tomllib.loads(Path(a.config).read_text(encoding="utf-8"))
+    cfg_path = Path(a.config)
+    if not cfg_path.exists() and a.config == "config.toml" and Path("config.example.toml").exists():
+        print("No config.toml yet, so this run uses config.example.toml. Copy it to config.toml and add your own profile.", file=sys.stderr)
+        cfg_path = Path("config.example.toml")
+    cfg = tomllib.loads(cfg_path.read_text(encoding="utf-8"))
     p = Profile.from_dict(cfg["profile"])
     exclude = cfg.get("filters", {}).get("exclude_titles", [])
     seen, evals = set(), []

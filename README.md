@@ -2,6 +2,8 @@
 
 **The job-search system I built for myself, open-sourced.**
 
+![Real output from the sample data included in this repo](docs/demo.png)
+
 I'm a brand and creator partnerships manager, not an engineer. When I started job hunting in Germany, I sent a lot of applications and got far fewer interviews than expected. So I treated it like a campaign: find better targets, measure fit honestly, and make every application specific.
 
 The result is an AI agent that runs **twice a day**. It pulls fresh jobs straight from company hiring systems, scores each one against my real CV with evidence, flags deal-breakers like "C1 German required", and builds a tailored application pack for the strong matches. This repo is the open-source core of that system.
