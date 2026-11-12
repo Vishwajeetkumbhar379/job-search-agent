@@ -82,6 +82,8 @@ def test_clean_text_passes():
 def test_word_count():
     ok, _ = word_count_ok("word " * 200, "email")
     assert ok
+    assert word_count_ok("x" * 200, "connection_note")[0]
+    assert not word_count_ok("x" * 201, "connection_note")[0]
 
 
 def test_claude_extraction_enforces_evidence_rules():

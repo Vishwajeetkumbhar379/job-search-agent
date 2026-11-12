@@ -91,7 +91,10 @@ def rhythm(text: str) -> list[Issue]:
 
 
 def word_count_ok(text: str, kind: str) -> tuple[bool, str]:
-    limits = {"email": (170, 270), "cover_letter": (300, 400), "follow_up": (60, 110), "connection_note": (0, 35)}
+    if kind == "connection_note":  # LinkedIn counts characters, not words
+        n = len(text.strip())
+        return n <= 200, f"{n} characters (max 200)"
+    limits = {"email": (170, 270), "cover_letter": (300, 400), "follow_up": (60, 110)}
     lo, hi = limits[kind]
     n = len(text.split())
     return lo <= n <= hi, f"{n} words (target {lo}-{hi})"
