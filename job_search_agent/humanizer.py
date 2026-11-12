@@ -13,12 +13,15 @@ STOCK_WORDS = [
     "crucial", "pivotal", "enhance", "showcase", "landscape", "vibrant", "meticulous", "intricate",
     "underscore", "garner", "bolster", "interplay", "delve", "leverage", "robust", "seamless",
     "cutting-edge", "spearhead", "testament", "tapestry", "navigate", "furthermore", "moreover",
+    "enduring", "dynamic", "fast-paced", "additionally",
 ]
 CLICHES = [
     "passionate", "thrilled", "eager to", "great fit", "proven track record", "results-driven",
     "wealth of experience", "hit the ground running", "keen interest", "align perfectly", "resonates",
     "i am writing to", "i am confident that", "dear sir or madam", "to whom it may concern",
     "just checking in", "touching base", "circling back", "feel free to", "don't hesitate",
+    "excited", "elevate", "empower", "just following up", "per my last email", "i hope this helps",
+    "great question",
 ]
 PATTERNS = [
     (r"\bnot (just|only|merely) [^.]{1,60}\bbut\b", "Not-X-but-Y contrast; state the point directly"),
